@@ -78,8 +78,11 @@ const PORT = process.env.PORT || 5000;
 
 // 🌐 Configuration CORS selon environnement
 const allowedOrigins = process.env.NODE_ENV === 'production'
-    ? ['https://ge.cfpm-de-madagascar.com'] // production avec HTTPS
-    : ['http://localhost:5173'];
+        ? [
+                'https://ge.cfpm-de-madagascar.com',
+                'http://ge.cfpm-de-madagascar.com'
+            ] // production avec HTTP et HTTPS
+        : ['http://localhost:5173'];
     
 app.use(cors({
     origin: allowedOrigins,
